@@ -1,0 +1,34 @@
+@import "../../styles/variables.css";
+
+.listItem {
+    margin: 10px 10px 10px 0px;
+    list-style-type: none;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 4px 4px 0px var(--red);
+    border: 3px solid var(--primaryTextColor);
+    border-radius: inherit;
+    padding: 5px;
+}
+
+.listItemNth0 {
+    box-shadow: 4px 4px 0px var(--red);
+}
+
+.listItemNth1 {
+    box-shadow: 4px 4px 0px var(--green);
+}
+
+.listItemNth2 {
+    box-shadow: 4px 4px 0px var(--blue);
+}
+
+.listItemNth3 {
+    box-shadow: 4px 4px 0px var(--yellow);
+}
+
+.listItemNth4 {
+    box-shadow: 4px 4px 0px var(--purple);
+} 

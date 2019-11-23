@@ -1,1 +1,1 @@
-export const getCount = state => state.count.count; // eslint-disable-line
+export const getToDos = state => state.toDos.toDos; // eslint-disable-line

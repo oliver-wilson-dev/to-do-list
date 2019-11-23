@@ -13,6 +13,8 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+  width: 280px;
+  margin: 0px auto;
 }
 
 @media (min-width: 767px) and (max-width: 1023px) {}
