@@ -1,0 +1,30 @@
+/* This is where any shared styles should live */
+@import "./variables.css";
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--primaryBackgroundColour);
+}
+
+h1 {
+  font-family: "futura-pt", sans-serif;
+}
+
+h2,
+h3 {
+  font-family: "futura-pt", sans-serif;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+p {
+  line-height: 2em;
+  font-size: 16px;
+}
+
+a {
+  text-decoration: none;
+  font-family: "futura-pt", sans-serif;
+  color: rgb(21, 64, 204);
+}

@@ -1,0 +1,21 @@
+{
+    "env": {
+        "browser": true,
+        "node": true,
+        "jest": true
+    },
+    "extends": "airbnb",
+    "parser": "babel-eslint",
+    "rules": {
+        "comma-dangle": "off",
+        "global-require": "off",
+        "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
+        "no-shadow": "off",
+        "react/jsx-filename-extension": "off",
+        "react/forbid-prop-types": "off",
+        "react/jsx-one-expression-per-line": "off"
+    },
+    "settings": {
+        "import/core-modules": ["global"]
+      }
+}

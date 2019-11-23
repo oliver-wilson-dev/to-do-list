@@ -1,0 +1,13 @@
+@import "../../styles/variables.css";
+
+.button {
+    padding: 10px 40px;
+    border: 3px solid #f0134d;
+    box-sizing: border-box;
+    text-transform:uppercase;
+    font-weight:400;
+    text-align:center;
+    transition: all 0.15s;
+    font-size: 18px;
+    background-color: var(--primaryBackgroundColour);
+}

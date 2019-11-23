@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Count/> component should render correctly 1`] = `
+<h1>
+  Clicked 
+  0
+   times.
+</h1>
+`;
+
+exports[`<Count/> component when the count prop changes should reflect that change in the h1 text 1`] = `
+<h1>
+  Clicked 
+  123
+   times.
+</h1>
+`;
