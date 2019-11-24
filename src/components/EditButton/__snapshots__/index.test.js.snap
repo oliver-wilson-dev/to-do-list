@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<EditButton/> component when the task is being edited should render correctly 1`] = `
+<Button
+  onClick={[Function]}
+>
+  <span
+    aria-label="apply changes"
+    role="img"
+  >
+    ✅
+  </span>
+</Button>
+`;
+
+exports[`<EditButton/> component when the task is not being edited should render correctly 1`] = `
+<Button
+  onClick={[Function]}
+>
+  <span
+    aria-label="edit this todo"
+    role="img"
+  >
+    ✏️
+  </span>
+</Button>
+`;

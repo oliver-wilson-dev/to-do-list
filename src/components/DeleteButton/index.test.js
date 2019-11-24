@@ -1,18 +1,23 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Button from './index';
+import DeleteButton from './index';
+import Button from '../Button';
 
-import styles from './index.css';
+jest.mock('../Button', () => {
+  const Button = () => null;
 
-const defaultProps = { incrementCount: jest.fn() };
+  return Button;
+});
 
-const render = overrideProps => shallow(<Button {...defaultProps} {...overrideProps} />);
+const mockId = Symbol('test-id');
+const defaultProps = { removeToDo: jest.fn(), id: mockId };
 
-describe('<Button/> component', () => {
+const render = overrideProps => shallow(<DeleteButton {...defaultProps} {...overrideProps} />);
+
+describe('<DeleteButton/> component', () => {
   beforeEach(() => {
     jest.clearAllMocks();
   });
-
 
   it('should exist', () => {
     expect(render().exists()).toBe(true);
@@ -22,16 +27,15 @@ describe('<Button/> component', () => {
     expect(render()).toMatchSnapshot();
   });
 
-  it(`should render a button with the className ${styles.button}`, () => {
-    expect(render().find('button').first().prop('className')).toBe(styles.button);
-  });
+  describe("when the button's onClick prop is called", () => {
+    it("should call the removeToDo function with the task's id", () => {
+      const mockRemoveToDo = jest.fn();
+      const mockId = Symbol('test-id');
 
-  describe('when the button is clicked', () => {
-    it('should call the incrementCount function', () => {
-      const incrementCount = jest.fn();
+      render({ removeToDo: mockRemoveToDo, id: mockId })
+        .find(Button).simulate('click');
 
-      render({ incrementCount }).simulate('click');
-      expect(incrementCount).toHaveBeenCalledTimes(1);
+      expect(mockRemoveToDo).toHaveBeenCalledWith({ id: mockId });
     });
   });
 });

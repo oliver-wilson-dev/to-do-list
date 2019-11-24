@@ -1,11 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Button/> component should render correctly 1`] = `
-<button
-  className="button"
-  onClick={[MockFunction]}
-  type="button"
+exports[`<DeleteButton/> component should render correctly 1`] = `
+<Button
+  onClick={[Function]}
 >
-  Click me!
-</button>
+  <span
+    aria-label="remove this todo"
+    role="img"
+  >
+    ❌
+  </span>
+</Button>
 `;

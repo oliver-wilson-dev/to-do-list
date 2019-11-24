@@ -1,9 +1,0 @@
-@import "../../styles/variables.css";
-
-.button {
-    border: none;
-    text-align: right;
-    font-size: 18px;
-    background-color: var(--primaryBackgroundColour);
-    border-radius: inherit;
-}

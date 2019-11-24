@@ -2,7 +2,6 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import AddNewToDo from './index';
 
-import styles from './index.css';
 import Button from '../Button';
 import TextArea from '../TextArea';
 
