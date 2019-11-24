@@ -3,19 +3,19 @@ import { shallow } from 'enzyme';
 import App from './index';
 
 import styles from './index.css';
-import Count from '../../containers/Count';
-import Button from '../../containers/Button';
+import List from '../../containers/List';
+import AddNewToDo from '../../containers/AddNewToDo';
 
-jest.mock('../../containers/Count', () => {
-  const Count = () => null;
+jest.mock('../../containers/List', () => {
+  const List = () => null;
 
-  return Count;
+  return List;
 });
 
-jest.mock('../../containers/Button', () => {
-  const Button = () => null;
+jest.mock('../../containers/AddNewToDo', () => {
+  const AddNewToDo = () => null;
 
-  return Button;
+  return AddNewToDo;
 });
 
 const defaultProps = { };
@@ -35,11 +35,11 @@ describe('<App/> component', () => {
     expect(render().find('div').first().prop('className')).toBe(styles.app);
   });
 
-  it('should render a <Count /> component', () => {
-    expect(render().find(Count).exists()).toBe(true);
+  it('should render a <List /> component', () => {
+    expect(render().find(List).exists()).toBe(true);
   });
 
-  it('should render a <Button /> component', () => {
-    expect(render().find(Button).exists()).toBe(true);
+  it('should render a <AddNewToDo /> component', () => {
+    expect(render().find(AddNewToDo).exists()).toBe(true);
   });
 });
