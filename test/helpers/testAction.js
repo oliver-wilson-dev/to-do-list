@@ -1,4 +1,4 @@
-const testAction = ({ render, Component }) => (actionName, action) => {
+const testAction = ({ render, Component }) => ({ actionName, action, params }) => {
   it(`should inject the action '${actionName}'`, () => {
     action.mockImplementation(() => ({
       type: 'MOCK_ACTION'
@@ -9,9 +9,13 @@ const testAction = ({ render, Component }) => (actionName, action) => {
       .prop(actionName);
     expect(injected).toBeDefined();
 
-    injected();
+    injected(params);
 
     expect(action).toHaveBeenCalled();
+
+    if (params) {
+      expect(action).toHaveBeenCalledWith(params);
+    }
   });
 };
 
