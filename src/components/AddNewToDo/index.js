@@ -19,7 +19,7 @@ const AddNewToDo = ({ addToDo }) => {
 
   return (
     <div className={styles.addNewToDo}>
-      <h2 className={styles.title}>Add a new todo</h2>
+      <h2 className={styles.title}>Add a new task</h2>
       <div className={styles.todoDetails}>
         <TextArea additionalStyles={styles.textArea} onChange={onChange} value={description} />
         <Button
