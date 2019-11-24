@@ -1,0 +1,9 @@
+.textArea {
+    resize: none;
+    overflow: auto;
+    background-color: var(--primaryBackgroundColour);
+    font-size: inherit;
+    padding: 5px 10px;
+    border: 3px solid var(--primaryTextColor);
+    margin-right: 5px;
+}

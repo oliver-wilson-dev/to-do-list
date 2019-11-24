@@ -1,0 +1,112 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ListItem/> component should render correctly 1`] = `
+<li
+  className="listItem listItemNth0"
+>
+  <span
+    className="description "
+  >
+    test-description
+  </span>
+  <div
+    className="actions"
+  >
+    <Checkbox
+      complete={false}
+      id={Symbol(test-id)}
+    />
+    <EditButton
+      description="test-description"
+      editing={false}
+      id={Symbol(test-id)}
+    />
+    <DeleteButton
+      id={Symbol(test-id)}
+    />
+  </div>
+</li>
+`;
+
+exports[`<ListItem/> component when the task is being edited should render correctly 1`] = `
+<li
+  className="listItem listItemNth0"
+>
+  <TextArea
+    onChange={[Function]}
+    value="test-description"
+  />
+  <div
+    className="actions"
+  >
+    <Checkbox
+      complete={false}
+      id={Symbol(test-id)}
+    />
+    <EditButton
+      description="test-description"
+      editing={true}
+      id={Symbol(test-id)}
+    />
+    <DeleteButton
+      id={Symbol(test-id)}
+    />
+  </div>
+</li>
+`;
+
+exports[`<ListItem/> component when the task is not being edited and the task is complete should render correctly 1`] = `
+<li
+  className="listItem listItemNth0"
+>
+  <span
+    className="description complete"
+  >
+    test-description
+  </span>
+  <div
+    className="actions"
+  >
+    <Checkbox
+      complete={true}
+      id={Symbol(test-id)}
+    />
+    <EditButton
+      description="test-description"
+      editing={false}
+      id={Symbol(test-id)}
+    />
+    <DeleteButton
+      id={Symbol(test-id)}
+    />
+  </div>
+</li>
+`;
+
+exports[`<ListItem/> component when the task is not being edited and the task is not complete should render correctly 1`] = `
+<li
+  className="listItem listItemNth0"
+>
+  <span
+    className="description "
+  >
+    test-description
+  </span>
+  <div
+    className="actions"
+  >
+    <Checkbox
+      complete={false}
+      id={Symbol(test-id)}
+    />
+    <EditButton
+      description="test-description"
+      editing={false}
+      id={Symbol(test-id)}
+    />
+    <DeleteButton
+      id={Symbol(test-id)}
+    />
+  </div>
+</li>
+`;
