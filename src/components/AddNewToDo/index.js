@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styles from './index.css';
+import Button from '../Button';
+import TextArea from '../TextArea';
+
 
 const AddNewToDo = ({ addToDo }) => {
   const [description, setDescription] = useState('');
 
-  const onInput = ({ target: { value: newDescription } }) => {
+  const onChange = ({ target: { value: newDescription } }) => {
     setDescription(newDescription);
   };
 
@@ -18,14 +21,13 @@ const AddNewToDo = ({ addToDo }) => {
     <div className={styles.addNewToDo}>
       <h2 className={styles.title}>Add a new todo</h2>
       <div className={styles.todoDetails}>
-        <textarea className={styles.textArea} placeholder="Start typing..." maxLength={50} onChange={onInput} value={description} />
-        <button
-          className={styles.button}
+        <TextArea additionalStyles={styles.textArea} onChange={onChange} value={description} />
+        <Button
+          additionalStyles={styles.button}
           onClick={onClick}
-          type="button"
         >
           <span role="img" aria-label="add a new todo">+</span>
-        </button>
+        </Button>
       </div>
     </div>
   );
