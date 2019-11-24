@@ -1,17 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Count/> component should render correctly 1`] = `
-<h1>
-  Clicked 
-  0
-   times.
-</h1>
-`;
-
-exports[`<Count/> component when the count prop changes should reflect that change in the h1 text 1`] = `
-<h1>
-  Clicked 
-  123
-   times.
-</h1>
+exports[`<List/> component should render correctly 1`] = `
+<ul
+  className="list"
+>
+  <ListItem
+    complete={false}
+    description="test-description"
+    editing={false}
+    id={Symbol(test-id)}
+    index={0}
+    key="0: test-description"
+  />
+  <ListItem
+    complete={true}
+    description="test-description"
+    editing={true}
+    id={Symbol(test-id)}
+    index={1}
+    key="1: test-description"
+  />
+</ul>
 `;

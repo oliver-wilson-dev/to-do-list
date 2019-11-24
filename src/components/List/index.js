@@ -5,12 +5,16 @@ import ListItem from '../ListItem';
 
 const List = ({ toDos }) => (
   <ul className={styles.list}>{
-      toDos.map(({ description, id }, index) => (
+      toDos.map(({
+        description, id, editing, complete
+      }, index) => (
         <ListItem
-          key={description}
+          key={`${index}: ${description}`} /* eslint-disable-line */
           id={id}
           description={description}
           index={index}
+          editing={editing}
+          complete={complete}
         />
       ))
     }

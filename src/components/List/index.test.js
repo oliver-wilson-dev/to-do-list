@@ -1,16 +1,38 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Count from './index';
+import List from './index';
 
-const defaultProps = { count: 0 };
+jest.mock('../ListItem', () => {
+  const ListItem = () => null;
 
-const render = overrideProps => shallow(<Count {...defaultProps} {...overrideProps} />);
+  return ListItem;
+});
 
-describe('<Count/> component', () => {
+const mockId = Symbol('test-id');
+const mockDescription = 'test-description';
+const mockComplete = false;
+const mockEditing = false;
+
+const mockToDos = [{
+  description: mockDescription,
+  id: mockId,
+  editing: mockEditing,
+  complete: mockComplete
+}, {
+  description: mockDescription,
+  id: mockId,
+  editing: !mockEditing,
+  complete: !mockComplete
+}];
+
+const defaultProps = { toDos: mockToDos };
+
+const render = overrideProps => shallow(<List {...defaultProps} {...overrideProps} />);
+
+describe('<List/> component', () => {
   beforeEach(() => {
     jest.clearAllMocks();
   });
-
 
   it('should exist', () => {
     expect(render().exists()).toBe(true);
@@ -18,11 +40,5 @@ describe('<Count/> component', () => {
 
   it('should render correctly', () => {
     expect(render()).toMatchSnapshot();
-  });
-
-  describe('when the count prop changes', () => {
-    it('should reflect that change in the h1 text', () => {
-      expect(render().setProps({ count: 123 })).toMatchSnapshot();
-    });
   });
 });
