@@ -1,17 +1,17 @@
 import testReduxComponent from '../../../test/helpers/testConnectedComponent';
-import ConnectedCount from '.';
-import Count from '../../components/Count';
-import { getCount } from '../../state/selectors';
+import ConnectedList from '.';
+import List from '../../components/List';
+import { getToDos } from '../../state/selectors';
 
 jest.mock('../../state/selectors');
-jest.mock('../../components/Count', () => () => null);
+jest.mock('../../components/List', () => () => null);
 
 const { testRender, testProp } = testReduxComponent({
-  ConnectedComponent: ConnectedCount,
-  Component: Count
+  ConnectedComponent: ConnectedList,
+  Component: List
 });
 
-describe('connected Count', () => {
+describe('connected List', () => {
   testRender();
-  testProp('count', getCount);
+  testProp({ propName: 'toDos', action: getToDos });
 });

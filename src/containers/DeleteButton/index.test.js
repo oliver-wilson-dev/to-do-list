@@ -1,18 +1,22 @@
 import testReduxComponent from '../../../test/helpers/testConnectedComponent';
-import ConnectedButton from '.';
-import Button from '../../components/Button';
-import incrementCount from '../../state/actions/incrementCount';
+import ConnectedDeleteButton from '.';
+import DeleteButton from '../../components/DeleteButton';
+import removeToDo from '../../state/actions/removeToDo';
 
-jest.mock('../../state/actions/incrementCount');
+jest.mock('../../state/actions/removeToDo');
 jest.mock('../../state/selectors');
-jest.mock('../../components/Button', () => () => null);
+jest.mock('../../components/DeleteButton', () => () => null);
 
 const { testRender, testAction } = testReduxComponent({
-  ConnectedComponent: ConnectedButton,
-  Component: Button
+  ConnectedComponent: ConnectedDeleteButton,
+  Component: DeleteButton
 });
 
-describe('connected Button', () => {
+describe('connected DeleteButton', () => {
   testRender();
-  testAction('incrementCount', incrementCount);
+  testAction({
+    actionName: 'removeToDo',
+    action: removeToDo,
+    params: { id: Symbol('test-id') }
+  });
 });
