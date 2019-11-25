@@ -1,12 +1,12 @@
 import {
-  getCount
+  getToDos
 } from '.';
 
-describe('getCount', () => {
+describe('getToDos', () => {
   it('returns the count property in state', () => {
-    const mockCount = Symbol('test-use-light-count');
-    expect(getCount({ count: { count: mockCount } })).toEqual(
-      mockCount
+    const mockToDos = Symbol('test-todo');
+    expect(getToDos({ toDos: { toDos: mockToDos } })).toEqual(
+      mockToDos
     );
   });
 });

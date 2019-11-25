@@ -1,16 +1,16 @@
 import { combineReducers } from 'redux';
-import count from './count';
+import toDos from './toDos';
 
 jest.mock('redux', () => ({
   combineReducers: jest.fn()
 }));
-jest.mock('./count');
+jest.mock('./toDos');
 
 const mockCombineReducers = Symbol('test-combine-reducers');
 
 describe('reducer', () => {
   beforeEach(() => {
-    count.mockReturnValueOnce(Symbol('test-count-reducer'));
+    toDos.mockReturnValueOnce(Symbol('test-toDos-reducer'));
     combineReducers.mockReturnValueOnce(mockCombineReducers);
   });
 
@@ -20,6 +20,6 @@ describe('reducer', () => {
 
   it('should call combineReducers with the imported reducers', () => {
     require('./');
-    expect(combineReducers).toHaveBeenCalledWith({ count });
+    expect(combineReducers).toHaveBeenCalledWith({ toDos });
   });
 });

@@ -1,7 +1,8 @@
 import getInitialState from './getInitialState';
+import { INITIAL_STATE } from './constants';
 
 describe('getInitialState', () => {
-  it('should return the initial state, detailing a count value of 0', () => {
-    expect(getInitialState()).toEqual({ count: 0 });
+  it('should return the initial state', () => {
+    expect(getInitialState()).toEqual(INITIAL_STATE);
   });
 });

@@ -1,6 +1,6 @@
-import removeItem from './removeItem';
+import markComplete from './markComplete';
 
-describe('removeItem reduce case', () => {
+describe('markComplete reduce case', () => {
   const mockId = Symbol('test-id');
   const mockComplete = false;
   const mockDescription = Symbol('test-description');
@@ -24,21 +24,22 @@ describe('removeItem reduce case', () => {
 
   describe('when the id provided matches the id of a task', () => {
     it(`should return the previously existing values from state, 
-    and remove the item that matches the id provided`, () => {
-      expect(removeItem({ state: mockState })({
+    and should mark the complete property of the task in question to true`, () => {
+      expect(markComplete({ state: mockState })({
         payload: {
           id: mockId,
         }
       })).toEqual({
         ...mockState,
-        toDos: [secondTask]
+        toDos: [{ ...firstTask, complete: !firstTask.complete }, secondTask]
       });
     });
   });
 
   describe('when the id provided does not match the id of a task', () => {
-    it('should return the previously existing values from state', () => {
-      expect(removeItem({ state: mockState })({
+    it(`should return the previously existing values from state, 
+    and should mark the complete property of the task in question to true`, () => {
+      expect(markComplete({ state: mockState })({
         payload: {
           id: Symbol('some-other-id'),
         }

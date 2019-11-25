@@ -1,7 +1,7 @@
-const removeItem = ({ state }) => ({ payload: { id, description } }) => ({
+const addItem = ({ state }) => ({ payload: { id, description } }) => ({
   ...state,
-  toDos: [{ id, description }, ...state.toDos]
+  toDos: [...state.toDos, { id, description }]
 });
 
 
-export default removeItem;
+export default addItem;
