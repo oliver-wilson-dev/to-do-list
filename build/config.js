@@ -1,8 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const projectRootDir = path.join(__dirname, '../dist/index.html');
-const outputAssetsDir = path.join(__dirname, '../dist');
+const projectRootDir = path.join(__dirname, './index.html');
+const outputAssetsDir = path.join(__dirname, '.');
 const entryDir = path.join(__dirname, '../src');
 
 module.exports = {
