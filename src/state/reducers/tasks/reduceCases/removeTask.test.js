@@ -1,4 +1,7 @@
 import removeTask from './removeTask';
+import setCookie from '../cookieUtilities/setCookie';
+
+jest.mock('../cookieUtilities/setCookie');
 
 describe('removeTask reduce case', () => {
   const mockId = Symbol('test-id');
@@ -34,6 +37,19 @@ describe('removeTask reduce case', () => {
         tasks: [secondTask]
       });
     });
+
+    it('should call setCookie with the tasks', () => {
+      removeTask({ state: mockState })({
+        payload: {
+          id: mockId,
+        }
+      });
+
+      expect(setCookie).toHaveBeenCalledWith({
+        name: 'tasks',
+        value: JSON.stringify([secondTask])
+      });
+    });
   });
 
   describe('when the id provided does not match the id of a task', () => {
@@ -45,6 +61,19 @@ describe('removeTask reduce case', () => {
       })).toEqual({
         ...mockState,
         tasks: [...mockState.tasks]
+      });
+    });
+
+    it('should call setCookie with the tasks', () => {
+      removeTask({ state: mockState })({
+        payload: {
+          id: Symbol('some-other-id'),
+        }
+      });
+
+      expect(setCookie).toHaveBeenCalledWith({
+        name: 'tasks',
+        value: JSON.stringify([...mockState.tasks])
       });
     });
   });

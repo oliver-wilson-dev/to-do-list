@@ -1,6 +1,7 @@
-const setEditState = ({ state }) => ({ payload: { id, editState, description } }) => ({
-  ...state,
-  tasks: state.tasks.map(task => (task.id === id
+import setCookie from '../cookieUtilities/setCookie';
+
+const setEditState = ({ state }) => ({ payload: { id, editState, description } }) => {
+  const tasks = state.tasks.map(task => (task.id === id
     ? {
       ...task,
       editing: editState,
@@ -8,8 +9,15 @@ const setEditState = ({ state }) => ({ payload: { id, editState, description } }
         ? description
         : task.description
     }
-    : task))
-});
+    : task));
+
+  setCookie({ name: 'tasks', value: JSON.stringify(tasks) });
+
+  return {
+    ...state,
+    tasks
+  };
+};
 
 
 export default setEditState;

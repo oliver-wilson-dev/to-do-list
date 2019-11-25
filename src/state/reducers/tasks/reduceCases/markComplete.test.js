@@ -1,4 +1,7 @@
 import markComplete from './markComplete';
+import setCookie from '../cookieUtilities/setCookie';
+
+jest.mock('../cookieUtilities/setCookie');
 
 describe('markComplete reduce case', () => {
   const mockId = Symbol('test-id');
@@ -34,6 +37,25 @@ describe('markComplete reduce case', () => {
         tasks: [{ ...firstTask, complete: !firstTask.complete }, secondTask]
       });
     });
+
+    it('should call setCookie with the tasks', () => {
+      const mockId = 'test-id';
+
+      markComplete({ state: mockState })({
+        payload: {
+          id: mockId
+        }
+      });
+
+      expect(setCookie).toHaveBeenCalledWith({
+        name: 'tasks',
+        value: JSON.stringify([{
+          ...firstTask,
+          complete: !firstTask.complete
+        },
+        secondTask])
+      });
+    });
   });
 
   describe('when the id provided does not match the id of a task', () => {
@@ -46,6 +68,25 @@ describe('markComplete reduce case', () => {
       })).toEqual({
         ...mockState,
         tasks: [...mockState.tasks]
+      });
+    });
+
+    it('should call setCookie with the tasks', () => {
+      const mockId = 'test-id';
+
+      markComplete({ state: mockState })({
+        payload: {
+          id: mockId
+        }
+      });
+
+      expect(setCookie).toHaveBeenCalledWith({
+        name: 'tasks',
+        value: JSON.stringify([{
+          ...firstTask,
+          complete: !firstTask.complete
+        },
+        secondTask])
       });
     });
   });

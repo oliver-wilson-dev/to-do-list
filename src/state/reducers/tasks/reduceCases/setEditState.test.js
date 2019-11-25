@@ -1,4 +1,7 @@
 import setEditState from './setEditState';
+import setCookie from '../cookieUtilities/setCookie';
+
+jest.mock('../cookieUtilities/setCookie');
 
 describe('setEditState reduce case', () => {
   const mockId = Symbol('test-id');
@@ -56,6 +59,39 @@ describe('setEditState reduce case', () => {
           secondTask]
         });
       });
+
+      it('should call setCookie with the tasks', () => {
+        const mockEditState = 'test-edit-state';
+        const mockDescription = 'test-description';
+
+        setEditState({
+          state:
+            {
+              ...mockState,
+              tasks: [
+                { ...firstTask, editing: true },
+                secondTask]
+            }
+        })({
+          payload: {
+            id: mockId,
+            editState: mockEditState,
+            description: mockDescription
+          }
+        });
+
+        expect(setCookie).toHaveBeenCalledWith({
+          name: 'tasks',
+          value: JSON.stringify([
+            {
+              ...firstTask,
+              editing: mockEditState,
+              description: mockDescription
+            },
+            secondTask
+          ])
+        });
+      });
     });
 
     describe('when the task is not being edited', () => {
@@ -75,6 +111,31 @@ describe('setEditState reduce case', () => {
           tasks: [{ ...firstTask, editing: mockEditState }, secondTask]
         });
       });
+
+      it('should call setCookie with the tasks', () => {
+        const mockEditState = 'test-edit-state';
+        const mockDescription = 'test-description';
+
+        setEditState({ state: mockState })({
+          payload: {
+            id: mockId,
+            editState: mockEditState,
+            description: mockDescription
+          }
+        });
+
+        expect(setCookie).toHaveBeenCalledWith({
+          name: 'tasks',
+          value: JSON.stringify(
+            [{
+              ...firstTask,
+              editing: mockEditState
+            },
+            secondTask
+            ]
+          )
+        });
+      });
     });
   });
 
@@ -90,6 +151,26 @@ describe('setEditState reduce case', () => {
           description: mockDescription
         }
       })).toEqual(mockState);
+    });
+
+    it('should call setCookie with the tasks', () => {
+      const mockEditState = 'test-edit-state';
+      const mockDescription = 'test-description';
+
+      setEditState({ state: mockState })({
+        payload: {
+          id: Symbol('some-other-id'),
+          editState: mockEditState,
+          description: mockDescription
+        }
+      });
+
+      expect(setCookie).toHaveBeenCalledWith({
+        name: 'tasks',
+        value: JSON.stringify(
+          mockState.tasks
+        )
+      });
     });
   });
 });
