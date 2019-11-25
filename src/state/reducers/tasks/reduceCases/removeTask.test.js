@@ -1,6 +1,6 @@
-import removeItem from './removeItem';
+import removeTask from './removeTask';
 
-describe('removeItem reduce case', () => {
+describe('removeTask reduce case', () => {
   const mockId = Symbol('test-id');
   const mockComplete = false;
   const mockDescription = Symbol('test-description');
@@ -19,32 +19,32 @@ describe('removeItem reduce case', () => {
 
   const mockState = {
     [Symbol('test-key')]: Symbol('test-value'),
-    toDos: [firstTask, secondTask]
+    tasks: [firstTask, secondTask]
   };
 
   describe('when the id provided matches the id of a task', () => {
     it(`should return the previously existing values from state, 
-    and remove the item that matches the id provided`, () => {
-      expect(removeItem({ state: mockState })({
+    and remove the task that matches the id provided`, () => {
+      expect(removeTask({ state: mockState })({
         payload: {
           id: mockId,
         }
       })).toEqual({
         ...mockState,
-        toDos: [secondTask]
+        tasks: [secondTask]
       });
     });
   });
 
   describe('when the id provided does not match the id of a task', () => {
     it('should return the previously existing values from state', () => {
-      expect(removeItem({ state: mockState })({
+      expect(removeTask({ state: mockState })({
         payload: {
           id: Symbol('some-other-id'),
         }
       })).toEqual({
         ...mockState,
-        toDos: [...mockState.toDos]
+        tasks: [...mockState.tasks]
       });
     });
   });

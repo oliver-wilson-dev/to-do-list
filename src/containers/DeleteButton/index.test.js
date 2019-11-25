@@ -1,9 +1,9 @@
 import testReduxComponent from '../../../test/helpers/testConnectedComponent';
 import ConnectedDeleteButton from '.';
 import DeleteButton from '../../components/DeleteButton';
-import removeToDo from '../../state/actions/removeToDo';
+import removeTask from '../../state/actions/removeTask';
 
-jest.mock('../../state/actions/removeToDo');
+jest.mock('../../state/actions/removeTask');
 jest.mock('../../state/selectors');
 jest.mock('../../components/DeleteButton', () => () => null);
 
@@ -15,8 +15,8 @@ const { testRender, testAction } = testReduxComponent({
 describe('connected DeleteButton', () => {
   testRender();
   testAction({
-    actionName: 'removeToDo',
-    action: removeToDo,
+    actionName: 'removeTask',
+    action: removeTask,
     params: { id: Symbol('test-id') }
   });
 });

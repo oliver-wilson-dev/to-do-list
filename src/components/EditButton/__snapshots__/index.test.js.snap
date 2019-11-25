@@ -18,7 +18,7 @@ exports[`<EditButton/> component when the task is not being edited should render
   onClick={[Function]}
 >
   <span
-    aria-label="edit this todo"
+    aria-label="edit this task"
     role="img"
   >
     ✏️

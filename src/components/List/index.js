@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import styles from './index.css';
 import ListItem from '../ListItem';
 
-const List = ({ toDos }) => (
+const List = ({ tasks }) => (
   <ul className={styles.list}>{
-      toDos.map(({
+      tasks.map(({
         description, id, editing, complete
       }, index) => (
         <ListItem
@@ -22,7 +22,7 @@ const List = ({ toDos }) => (
 );
 
 List.propTypes = {
-  toDos: PropTypes.array.isRequired
+  tasks: PropTypes.array.isRequired
 };
 
 export default List;

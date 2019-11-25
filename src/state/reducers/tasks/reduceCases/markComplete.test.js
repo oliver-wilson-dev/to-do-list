@@ -19,7 +19,7 @@ describe('markComplete reduce case', () => {
 
   const mockState = {
     [Symbol('test-key')]: Symbol('test-value'),
-    toDos: [firstTask, secondTask]
+    tasks: [firstTask, secondTask]
   };
 
   describe('when the id provided matches the id of a task', () => {
@@ -31,7 +31,7 @@ describe('markComplete reduce case', () => {
         }
       })).toEqual({
         ...mockState,
-        toDos: [{ ...firstTask, complete: !firstTask.complete }, secondTask]
+        tasks: [{ ...firstTask, complete: !firstTask.complete }, secondTask]
       });
     });
   });
@@ -45,7 +45,7 @@ describe('markComplete reduce case', () => {
         }
       })).toEqual({
         ...mockState,
-        toDos: [...mockState.toDos]
+        tasks: [...mockState.tasks]
       });
     });
   });

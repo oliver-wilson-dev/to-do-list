@@ -10,7 +10,7 @@ jest.mock('../Button', () => {
 });
 
 const mockId = Symbol('test-id');
-const defaultProps = { removeToDo: jest.fn(), id: mockId };
+const defaultProps = { removeTask: jest.fn(), id: mockId };
 
 const render = overrideProps => shallow(<DeleteButton {...defaultProps} {...overrideProps} />);
 
@@ -28,11 +28,11 @@ describe('<DeleteButton/> component', () => {
   });
 
   describe("when the button's onClick prop is called", () => {
-    it("should call the removeToDo function with the task's id", () => {
+    it("should call the removeTask function with the task's id", () => {
       const mockRemoveToDo = jest.fn();
       const mockId = Symbol('test-id');
 
-      render({ removeToDo: mockRemoveToDo, id: mockId })
+      render({ removeTask: mockRemoveToDo, id: mockId })
         .find(Button).simulate('click');
 
       expect(mockRemoveToDo).toHaveBeenCalledWith({ id: mockId });

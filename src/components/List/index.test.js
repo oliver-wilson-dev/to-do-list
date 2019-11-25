@@ -13,7 +13,7 @@ const mockDescription = 'test-description';
 const mockComplete = false;
 const mockEditing = false;
 
-const mockToDos = [{
+const mockTasks = [{
   description: mockDescription,
   id: mockId,
   editing: mockEditing,
@@ -25,7 +25,7 @@ const mockToDos = [{
   complete: !mockComplete
 }];
 
-const defaultProps = { toDos: mockToDos };
+const defaultProps = { tasks: mockTasks };
 
 const render = overrideProps => shallow(<List {...defaultProps} {...overrideProps} />);
 

@@ -1,11 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import ListItem from './index';
-
-import DeleteButton from '../../containers/DeleteButton';
 import EditButton from '../../containers/EditButton';
-import Checkbox from '../../containers/Checkbox';
 import TextArea from '../TextArea';
+
+const mockRef = Symbol('test-ref');
+jest.spyOn(React, 'useRef').mockImplementation(() => mockRef);
 
 jest.mock('../Button', () => {
   const Button = () => null;
@@ -85,6 +85,11 @@ describe('<ListItem/> component', () => {
   describe('when the task is being edited', () => {
     it('should render correctly', () => {
       expect(render({ editing: true })).toMatchSnapshot();
+    });
+
+    it('should pass the ref to the TextArea component', () => {
+      const wrapper = render({ editing: true });
+      expect(wrapper.find(TextArea).prop('reference')).toBe(mockRef);
     });
 
     describe('and the editing is done', () => {

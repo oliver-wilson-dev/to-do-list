@@ -11,7 +11,7 @@ const EditButton = ({
     <Button onClick={onClick}>
       {editing
         ? <span role="img" aria-label="apply changes">✅</span>
-        : <span role="img" aria-label="edit this todo">✏️</span>
+        : <span role="img" aria-label="edit this task">✏️</span>
       }
     </Button>
   );

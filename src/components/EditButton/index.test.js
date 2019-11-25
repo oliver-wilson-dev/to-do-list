@@ -30,7 +30,7 @@ describe('<EditButton/> component', () => {
 
   const onClickChecks = ({ mockEditing } = { mockEditing: false }) => {
     describe("when the button's onClick prop is called", () => {
-      it("should call the removeToDo function with the task's id", () => {
+      it("should call the removeTask function with the task's id", () => {
         const mockId = Symbol('test-id');
         const mockDescription = 'test-description';
         const mockSetEditState = jest.fn();

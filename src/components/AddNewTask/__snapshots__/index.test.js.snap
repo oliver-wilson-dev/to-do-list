@@ -2,19 +2,20 @@
 
 exports[`<App/> component should render correctly 1`] = `
 <div
-  className="addNewToDo"
+  className="addNewTask"
 >
   <h2
     className="title"
   >
-    Add a new todo
+    Add a new task
   </h2>
   <div
-    className="todoDetails"
+    className="taskDetails"
   >
     <TextArea
       additionalStyles="textArea"
       onChange={[Function]}
+      reference={Symbol(test-ref)}
       value=""
     />
     <Button
@@ -22,7 +23,7 @@ exports[`<App/> component should render correctly 1`] = `
       onClick={[Function]}
     >
       <span
-        aria-label="add a new todo"
+        aria-label="add a new task"
         role="img"
       >
         +

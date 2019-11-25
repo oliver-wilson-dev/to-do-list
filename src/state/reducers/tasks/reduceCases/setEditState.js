@@ -1,14 +1,14 @@
 const setEditState = ({ state }) => ({ payload: { id, editState, description } }) => ({
   ...state,
-  toDos: state.toDos.map(item => (item.id === id
+  tasks: state.tasks.map(task => (task.id === id
     ? {
-      ...item,
+      ...task,
       editing: editState,
-      description: item.editing === true
+      description: task.editing === true
         ? description
-        : item.description
+        : task.description
     }
-    : item))
+    : task))
 });
 
 

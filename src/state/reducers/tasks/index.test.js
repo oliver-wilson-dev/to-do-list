@@ -1,17 +1,17 @@
 import tasksReducer from '.';
 import {
-  REMOVE_TO_DO, ADD_TO_DO, SET_EDIT_STATE, MARK_COMPLETE
+  REMOVE_TASK, ADD_TASK, SET_EDIT_STATE, MARK_COMPLETE
 } from '../../actions/constants';
-import addItem from './reduceCases/addItem';
+import addTask from './reduceCases/addTask';
 import getInitialState from './getInitialState';
 import markComplete from './reduceCases/markComplete';
-import removeItem from './reduceCases/removeItem';
+import removeTask from './reduceCases/removeTask';
 import setEditState from './reduceCases/setEditState';
 
-jest.mock('./reduceCases/addItem');
+jest.mock('./reduceCases/addTask');
 jest.mock('./getInitialState');
 jest.mock('./reduceCases/markComplete');
-jest.mock('./reduceCases/removeItem');
+jest.mock('./reduceCases/removeTask');
 jest.mock('./reduceCases/setEditState');
 
 const mockInitialState = {
@@ -25,10 +25,10 @@ const mockSetEditStateCallback = jest.fn();
 
 describe('task reducer', () => {
   beforeEach(() => {
-    addItem.mockReturnValueOnce(mockAddItemCallBack);
+    addTask.mockReturnValueOnce(mockAddItemCallBack);
     getInitialState.mockReturnValueOnce(mockInitialState);
     markComplete.mockReturnValueOnce(mockMarkCompleteCallback);
-    removeItem.mockReturnValueOnce(mockRemoveItemCallback);
+    removeTask.mockReturnValueOnce(mockRemoveItemCallback);
     setEditState.mockReturnValueOnce(mockSetEditStateCallback);
     jest.clearAllMocks();
   });
@@ -44,7 +44,7 @@ describe('task reducer', () => {
       it(`should call the ${actionName} reduce case with the current state`, () => {
         tasksReducer(undefined, action);
 
-        expect(removeItem).toHaveBeenCalledWith({ state: mockInitialState });
+        expect(removeTask).toHaveBeenCalledWith({ state: mockInitialState });
       });
 
       it(`should call the ${actionName} reduce case callback with the action payload`, () => {
@@ -66,15 +66,15 @@ describe('task reducer', () => {
       it(`should call the ${actionName} reduce case with the current state`, () => {
         tasksReducer(initialState, action);
 
-        expect(removeItem).toHaveBeenCalledWith({ state: initialState });
+        expect(removeTask).toHaveBeenCalledWith({ state: initialState });
       });
     });
   };
 
   describe.each`
   ACTION_TYPE       | ACTION_NAME       | CALLBACK
-  ${REMOVE_TO_DO}   | ${'removeItem'}   | ${mockRemoveItemCallback}
-  ${ADD_TO_DO}      | ${'addItem'}      | ${mockAddItemCallBack}
+  ${REMOVE_TASK}   | ${'removeTask'}   | ${mockRemoveItemCallback}
+  ${ADD_TASK}      | ${'addTask'}      | ${mockAddItemCallBack}
   ${SET_EDIT_STATE} | ${'setEditState'} | ${mockSetEditStateCallback}
   ${MARK_COMPLETE}  | ${'markComplete'} | ${mockMarkCompleteCallback}
 `('when the action type is $ACTION_TYPE', ({ ACTION_TYPE, ACTION_NAME, CALLBACK }) => {

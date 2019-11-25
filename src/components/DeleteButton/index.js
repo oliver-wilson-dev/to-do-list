@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '../Button';
 
-const DeleteButton = ({ removeToDo, id }) => {
-  const onClick = () => removeToDo({ id });
+const DeleteButton = ({ removeTask, id }) => {
+  const onClick = () => removeTask({ id });
 
   return (
     <Button onClick={onClick}>
@@ -13,7 +13,7 @@ const DeleteButton = ({ removeToDo, id }) => {
 };
 
 DeleteButton.propTypes = {
-  removeToDo: PropTypes.func.isRequired,
+  removeTask: PropTypes.func.isRequired,
   id: PropTypes.symbol.isRequired
 };
 

@@ -1,11 +1,11 @@
-import addItem from './addItem';
+import addTask from './addTask';
 
 
-describe('addItem reduce case', () => {
-  it('should return the previously existing values from state, as well as preserving the existing todos and appending a new todo', () => {
+describe('addTask reduce case', () => {
+  it('should return the previously existing values from state, as well as preserving the existing tasks and appending a new task', () => {
     const mockState = {
       [Symbol('test-key')]: Symbol('test-value'),
-      toDos: [{
+      tasks: [{
         id: Symbol('test-id'),
         description: Symbol('test-description')
       }]
@@ -14,14 +14,14 @@ describe('addItem reduce case', () => {
     const mockId = Symbol('test-id');
     const mockDescription = Symbol('test-description');
 
-    expect(addItem({ state: mockState })({
+    expect(addTask({ state: mockState })({
       payload: {
         id: mockId,
         description: mockDescription
       }
     })).toEqual({
       ...mockState,
-      toDos: [...mockState.toDos, {
+      tasks: [...mockState.tasks, {
         id: mockId,
         description: mockDescription
       }]

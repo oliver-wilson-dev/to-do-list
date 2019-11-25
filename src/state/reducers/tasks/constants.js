@@ -1,6 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 export const INITIAL_STATE = {
-  toDos: [{
+  tasks: [{
     description: 'Go shopping',
     id: Symbol('to-do-item'),
     editing: false,

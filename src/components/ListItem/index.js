@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './index.css';
 import DeleteButton from '../../containers/DeleteButton';
@@ -9,11 +9,13 @@ import TextArea from '../TextArea';
 const ListItem = ({
   description, id, index, editing, complete
 }) => {
-  const [newDescription, setDescription] = useState(description);
+  const [newDescription, setDescription] = React.useState(description);
 
   const onChange = ({ target: { value: newDescription } }) => {
     setDescription(newDescription);
   };
+
+  const ref = React.useRef(null);
 
   return (
     <li className={`${styles.listItem} ${styles[`listItemNth${index % 5}`]}`}>
@@ -22,6 +24,7 @@ const ListItem = ({
           <TextArea
             onChange={onChange}
             value={newDescription}
+            reference={ref}
           />
         )
         : <span className={`${styles.description} ${complete ? styles.complete : ''}`}>{description}</span>}

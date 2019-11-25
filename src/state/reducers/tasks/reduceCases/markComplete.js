@@ -1,11 +1,11 @@
 const markComplete = ({ state }) => ({ payload: { id } }) => ({
   ...state,
-  toDos: state.toDos.map(item => (item.id === id
+  tasks: state.tasks.map(task => (task.id === id
     ? {
-      ...item,
-      complete: !item.complete
+      ...task,
+      complete: !task.complete
     }
-    : item))
+    : task))
 });
 
 

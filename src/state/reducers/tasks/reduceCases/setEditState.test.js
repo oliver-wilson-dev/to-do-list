@@ -21,11 +21,11 @@ describe('setEditState reduce case', () => {
 
   const mockState = {
     [Symbol('test-key')]: Symbol('test-value'),
-    toDos: [firstTask, secondTask]
+    tasks: [firstTask, secondTask]
   };
 
   describe('when the id provided matches the id of a task', () => {
-    describe('when the item is being edited', () => {
+    describe('when the task is being edited', () => {
       it(`should return the previously existing values from state, 
         and should mark the editing property of the task in question to the value of the editState
         and set the new description to be the value of the description param`, () => {
@@ -36,7 +36,7 @@ describe('setEditState reduce case', () => {
           state:
             {
               ...mockState,
-              toDos: [
+              tasks: [
                 { ...firstTask, editing: true },
                 secondTask]
             }
@@ -48,7 +48,7 @@ describe('setEditState reduce case', () => {
           }
         })).toEqual({
           ...mockState,
-          toDos: [{
+          tasks: [{
             ...firstTask,
             editing: mockEditState,
             description: mockDescription
@@ -58,7 +58,7 @@ describe('setEditState reduce case', () => {
       });
     });
 
-    describe('when the item is not being edited', () => {
+    describe('when the task is not being edited', () => {
       it(`should return the previously existing values from state, 
         and should mark the editing property of the task in question to the value of the editState`, () => {
         const mockEditState = Symbol('test-edit-state');
@@ -72,7 +72,7 @@ describe('setEditState reduce case', () => {
           }
         })).toEqual({
           ...mockState,
-          toDos: [{ ...firstTask, editing: mockEditState }, secondTask]
+          tasks: [{ ...firstTask, editing: mockEditState }, secondTask]
         });
       });
     });

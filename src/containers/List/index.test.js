@@ -1,7 +1,7 @@
 import testReduxComponent from '../../../test/helpers/testConnectedComponent';
 import ConnectedList from '.';
 import List from '../../components/List';
-import { getToDos } from '../../state/selectors';
+import { getTasks } from '../../state/selectors';
 
 jest.mock('../../state/selectors');
 jest.mock('../../components/List', () => () => null);
@@ -13,5 +13,5 @@ const { testRender, testProp } = testReduxComponent({
 
 describe('connected List', () => {
   testRender();
-  testProp({ propName: 'toDos', action: getToDos });
+  testProp({ propName: 'tasks', action: getTasks });
 });

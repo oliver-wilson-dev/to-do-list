@@ -4,7 +4,7 @@ import App from './index';
 
 import styles from './index.css';
 import List from '../../containers/List';
-import AddNewToDo from '../../containers/AddNewToDo';
+import AddNewTask from '../../containers/AddNewTask';
 
 jest.mock('../../containers/List', () => {
   const List = () => null;
@@ -12,10 +12,10 @@ jest.mock('../../containers/List', () => {
   return List;
 });
 
-jest.mock('../../containers/AddNewToDo', () => {
-  const AddNewToDo = () => null;
+jest.mock('../../containers/AddNewTask', () => {
+  const AddNewTask = () => null;
 
-  return AddNewToDo;
+  return AddNewTask;
 });
 
 const defaultProps = { };
@@ -39,7 +39,7 @@ describe('<App/> component', () => {
     expect(render().find(List).exists()).toBe(true);
   });
 
-  it('should render a <AddNewToDo /> component', () => {
-    expect(render().find(AddNewToDo).exists()).toBe(true);
+  it('should render a <AddNewTask /> component', () => {
+    expect(render().find(AddNewTask).exists()).toBe(true);
   });
 });

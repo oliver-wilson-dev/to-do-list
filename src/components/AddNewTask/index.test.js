@@ -1,9 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import AddNewToDo from './index';
-
+import AddNewTask from './index';
 import Button from '../Button';
 import TextArea from '../TextArea';
+
+const mockRef = Symbol('test-ref');
+jest.spyOn(React, 'useRef').mockImplementation(() => mockRef);
 
 jest.mock('../Button', () => {
   const Button = () => null;
@@ -17,11 +19,11 @@ jest.mock('../TextArea', () => {
   return TextArea;
 });
 
-const mockAddToDo = jest.fn();
+const mockAddTask = jest.fn();
 
-const defaultProps = { addToDo: mockAddToDo };
+const defaultProps = { addTask: mockAddTask };
 
-const render = overrideProps => shallow(<AddNewToDo {...defaultProps} {...overrideProps} />);
+const render = overrideProps => shallow(<AddNewTask {...defaultProps} {...overrideProps} />);
 
 describe('<App/> component', () => {
   beforeEach(() => {
@@ -45,6 +47,10 @@ describe('<App/> component', () => {
     expect(render().find(TextArea).exists()).toBe(true);
   });
 
+  it('should pass the ref to the <TextArea /> component', () => {
+    expect(render().find(TextArea).prop('reference')).toEqual(mockRef);
+  });
+
   describe('when rendering the <TextArea />', () => {
     it('should have a default value of an empty string', () => {
       expect(render().find(TextArea).prop('value')).toEqual('');
@@ -63,19 +69,19 @@ describe('<App/> component', () => {
 
   describe('when rendering the Button component', () => {
     describe('when the onClick handler is called', () => {
-      it('should call addToDo with the description', () => {
-        const addToDo = jest.fn();
-        const wrapper = render({ addToDo });
+      it('should call addTask with the description', () => {
+        const addTask = jest.fn();
+        const wrapper = render({ addTask });
 
         wrapper.find(Button).simulate('click');
 
-        expect(addToDo).toHaveBeenCalledWith({ description: '' });
+        expect(addTask).toHaveBeenCalledWith({ description: '' });
       });
 
       describe('when the description has been set', () => {
         it('should set the description back to an empty string', () => {
-          const addToDo = jest.fn();
-          const wrapper = render({ addToDo });
+          const addTask = jest.fn();
+          const wrapper = render({ addTask });
           const newDescription = 'test-new-description';
 
           wrapper.find(TextArea).simulate('change', { target: { value: newDescription } });

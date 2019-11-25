@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 import List from '../../components/List';
-import { getToDos } from '../../state/selectors';
+import { getTasks } from '../../state/selectors';
 
 const mapStateToProps = state => ({
-  toDos: getToDos(state)
+  tasks: getTasks(state)
 });
 
 export default connect(mapStateToProps)(List);

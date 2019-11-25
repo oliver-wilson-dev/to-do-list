@@ -1,5 +1,5 @@
-export const ADD_TO_DO = 'ADD_TO_DO';
+export const ADD_TASK = 'ADD_TASK';
 export const APPLY_EDIT = 'APPLY_EDIT';
 export const MARK_COMPLETE = 'MARK_COMPLETE';
-export const REMOVE_TO_DO = 'REMOVE_TO_DO';
+export const REMOVE_TASK = 'REMOVE_TASK';
 export const SET_EDIT_STATE = 'SET_EDIT_STATE';

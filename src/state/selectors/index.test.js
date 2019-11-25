@@ -1,11 +1,11 @@
 import {
-  getToDos
+  getTasks
 } from '.';
 
-describe('getToDos', () => {
+describe('getTasks', () => {
   it('returns the count property in state', () => {
     const mockToDos = Symbol('test-todo');
-    expect(getToDos({ toDos: { toDos: mockToDos } })).toEqual(
+    expect(getTasks({ tasks: { tasks: mockToDos } })).toEqual(
       mockToDos
     );
   });

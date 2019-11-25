@@ -1,11 +1,11 @@
 import React from 'react';
 import styles from './index.css';
 import List from '../../containers/List';
-import AddNewToDo from '../../containers/AddNewToDo';
+import AddNewTask from '../../containers/AddNewTask';
 
 const App = () => (
   <div className={styles.app}>
-    <AddNewToDo />
+    <AddNewTask />
     <List />
   </div>
 );
