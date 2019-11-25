@@ -7,7 +7,6 @@ import getInitialState from './getInitialState';
 import setEditState from './reduceCases/setEditState';
 import markComplete from './reduceCases/markComplete';
 
-
 const tasksReducer = (state = getInitialState(), action) => new Proxy({
   [REMOVE_TASK]: removeTask({ state }),
   [ADD_TASK]: addTask({ state }),

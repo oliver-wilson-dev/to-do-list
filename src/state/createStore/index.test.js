@@ -12,7 +12,7 @@ jest.mock('redux');
 jest.mock('global', () => ({
   window: {}
 }));
-jest.mock('../reducers', () => Symbol('test-root-reducer'));
+jest.mock('../reducers', () => jest.fn().mockReturnValue(Symbol('test-root-reducer')));
 jest.mock('./middlewareProvider');
 
 
@@ -39,7 +39,7 @@ describe('createStore', () => {
     it('should be called with the rootReducer and the redux devtools extension method on the window', () => {
       createStoreCustom();
       expect(createStore)
-        .toHaveBeenCalledWith(rootReducer, global.window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__());
+        .toHaveBeenCalledWith(rootReducer(), global.window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__());
     });
   });
 
@@ -52,7 +52,7 @@ describe('createStore', () => {
     it('should be called with the rootReducer and the redux devtools extension method on the window', () => {
       createStoreCustom();
       expect(createStore)
-        .toHaveBeenCalledWith(rootReducer, mockCompose);
+        .toHaveBeenCalledWith(rootReducer(), mockCompose);
     });
   });
 });

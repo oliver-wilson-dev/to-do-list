@@ -11,6 +11,7 @@ const Checkbox = ({ markComplete, id, complete }) => {
       className={styles.checkbox}
       checked={complete}
       onChange={onChange}
+      aria-label={`mark this task as ${complete ? 'incomplete' : 'complete'}`}
     />
   );
 };

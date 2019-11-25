@@ -2,6 +2,7 @@
 
 exports[`<Checkbox/> component when the checkbox is checked should render correctly 1`] = `
 <input
+  aria-label="mark this task as incomplete"
   checked={true}
   className="checkbox"
   onChange={[Function]}
@@ -11,6 +12,7 @@ exports[`<Checkbox/> component when the checkbox is checked should render correc
 
 exports[`<Checkbox/> component when the checkbox is not checked should render correctly 1`] = `
 <input
+  aria-label="mark this task as complete"
   checked={false}
   className="checkbox"
   onChange={[Function]}
