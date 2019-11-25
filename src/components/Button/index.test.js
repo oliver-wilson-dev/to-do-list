@@ -4,7 +4,9 @@ import Button from './index';
 
 import styles from './index.css';
 
-const defaultProps = { incrementCount: jest.fn() };
+const mockOnClick = jest.fn();
+
+const defaultProps = { onClick: mockOnClick };
 
 const render = overrideProps => shallow(<Button {...defaultProps} {...overrideProps} />);
 
@@ -12,7 +14,6 @@ describe('<Button/> component', () => {
   beforeEach(() => {
     jest.clearAllMocks();
   });
-
 
   it('should exist', () => {
     expect(render().exists()).toBe(true);
@@ -22,16 +23,30 @@ describe('<Button/> component', () => {
     expect(render()).toMatchSnapshot();
   });
 
-  it(`should render a button with the className ${styles.button}`, () => {
-    expect(render().find('button').first().prop('className')).toBe(styles.button);
+  describe('when there are children to be rendered', () => {
+    it('renders correctly', () => {
+      expect(render({ children: <span>hello world</span> })).toMatchSnapshot();
+    });
+  });
+
+  describe('when there are additionalStyles to be applied', () => {
+    it('renders correctly', () => {
+      const mockAdditionalStyles = 'test-additional-styles';
+      expect(render({ additionalStyles: mockAdditionalStyles })
+        .find('button')
+        .prop('className'))
+        .toEqual(`${styles.button} ${mockAdditionalStyles}`);
+    });
   });
 
   describe('when the button is clicked', () => {
-    it('should call the incrementCount function', () => {
-      const incrementCount = jest.fn();
+    it('should call the onClick handler', () => {
+      const mockOnClick = jest.fn();
+      const wrapper = render({ onClick: mockOnClick });
 
-      render({ incrementCount }).simulate('click');
-      expect(incrementCount).toHaveBeenCalledTimes(1);
+      wrapper.find('button').simulate('click');
+
+      expect(mockOnClick).toHaveBeenCalled();
     });
   });
 });

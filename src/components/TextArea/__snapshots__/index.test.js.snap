@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TextArea/> component should render correctly 1`] = `
+<textarea
+  className="textArea "
+  maxLength={50}
+  onChange={[MockFunction]}
+  placeholder="Start typing..."
+  value="test-value"
+/>
+`;

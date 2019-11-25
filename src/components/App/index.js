@@ -1,12 +1,12 @@
 import React from 'react';
 import styles from './index.css';
-import Count from '../../containers/Count';
-import Button from '../../containers/Button';
+import List from '../../containers/List';
+import AddNewTask from '../../containers/AddNewTask';
 
 const App = () => (
   <div className={styles.app}>
-    <Count />
-    <Button />
+    <AddNewTask />
+    <List />
   </div>
 );
 

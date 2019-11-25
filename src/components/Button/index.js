@@ -2,12 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './index.css';
 
-const Button = ({ incrementCount }) => (
-  <button className={styles.button} onClick={incrementCount} type="button">Click me!</button>
+const Button = ({
+  onClick, children, additionalStyles
+}) => (
+  <button className={`${styles.button} ${additionalStyles || ''}`} onClick={onClick} type="button">
+    {children}
+  </button>
 );
 
 Button.propTypes = {
-  incrementCount: PropTypes.func.isRequired
+  additionalStyles: PropTypes.string,
+  onClick: PropTypes.func.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ])
 };
 
 export default Button;

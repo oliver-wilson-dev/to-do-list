@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
-import count from './count';
+import tasks from './tasks';
 
-export default combineReducers({
-  count
+const reducers = () => combineReducers({
+  tasks
 });
+
+export default reducers;

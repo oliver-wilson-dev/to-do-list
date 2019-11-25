@@ -2,10 +2,20 @@
 
 exports[`<Button/> component should render correctly 1`] = `
 <button
-  className="button"
+  className="button "
+  onClick={[MockFunction]}
+  type="button"
+/>
+`;
+
+exports[`<Button/> component when there are children to be rendered renders correctly 1`] = `
+<button
+  className="button "
   onClick={[MockFunction]}
   type="button"
 >
-  Click me!
+  <span>
+    hello world
+  </span>
 </button>
 `;

@@ -1,9 +1,11 @@
 const testProp = ({
   stateParam, render, Component, state
 }) => (
-  propName,
-  action,
-  { parameterOrder = [stateParam], transform = x => x } = {}
+  {
+    propName,
+    action,
+    overrides: { parameterOrder = [stateParam], transform = x => x } = {}
+  }
 ) => {
   it(`should inject the prop '${propName}'`, () => {
     const mockValue = transform(Symbol('mock-value'));

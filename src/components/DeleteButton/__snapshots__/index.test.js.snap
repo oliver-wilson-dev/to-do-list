@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DeleteButton/> component should render correctly 1`] = `
+<Button
+  onClick={[Function]}
+>
+  <span
+    aria-label="remove this todo"
+    role="img"
+  >
+    ❌
+  </span>
+</Button>
+`;

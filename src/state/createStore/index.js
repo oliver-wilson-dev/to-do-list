@@ -8,7 +8,7 @@ import getMiddlewares from './middlewareProvider';
 export default () => {
   const composeEnhancer = global.window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
   return createStore(
-    rootReducer,
+    rootReducer(),
     composeEnhancer(applyMiddleware(...getMiddlewares()))
   );
 };
