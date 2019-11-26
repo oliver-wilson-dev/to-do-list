@@ -11,4 +11,12 @@
     overflow: scroll;
     width: 100%;
     box-sizing: border-box;
+
+    &:after {
+        /* fix for this bug: https://stackoverflow.com/questions/29986977/firefox-ignores-padding-when-using-overflowscroll */
+        content: "content";
+        height: 10px;
+        display: block;
+        opacity: 0;
+    }
 }

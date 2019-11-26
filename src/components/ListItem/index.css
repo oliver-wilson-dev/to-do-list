@@ -13,6 +13,10 @@
     border-radius: inherit;
     padding: 5px;
     font-size: 14px;
+
+    &:last-of-type {
+        padding-bottom: 0px;
+    }
 }
 
 .description {
