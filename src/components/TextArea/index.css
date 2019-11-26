@@ -1,6 +1,6 @@
 .textArea {
     resize: none;
-    overflow: auto;
+    overflow: hidden;
     background-color: var(--primaryBackgroundColour);
     font-size: inherit;
     padding: 5px 10px;

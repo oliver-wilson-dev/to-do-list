@@ -25,6 +25,7 @@ const ListItem = ({
             onChange={onChange}
             value={newDescription}
             reference={ref}
+            additionalStyles={styles.textArea}
           />
         )
         : <span className={`${styles.description} ${complete ? styles.complete : ''}`}>{description}</span>}
