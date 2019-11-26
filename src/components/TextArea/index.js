@@ -13,7 +13,7 @@ const TextArea = ({
     <textarea
       className={`${styles.textArea} ${additionalStyles || ''}`}
       placeholder="Start typing..."
-      maxLength={50}
+      maxLength={100}
       onChange={onChange}
       value={value}
       ref={reference}

@@ -3,7 +3,7 @@
 exports[`<TextArea/> component should render correctly 1`] = `
 <textarea
   className="textArea "
-  maxLength={50}
+  maxLength={100}
   onChange={[MockFunction]}
   placeholder="Start typing..."
   value="test-value"

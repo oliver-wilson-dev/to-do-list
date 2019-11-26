@@ -33,6 +33,7 @@ exports[`<ListItem/> component when the task is being edited should render corre
   className="listItem listItemNth0"
 >
   <TextArea
+    additionalStyles="textArea"
     onChange={[Function]}
     reference={Symbol(test-ref)}
     value="test-description"
