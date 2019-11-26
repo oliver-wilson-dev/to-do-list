@@ -5,7 +5,6 @@
     list-style-type: none;
     text-align: left;
     display: flex;
-    display: -webkit-box;
     justify-content: space-between;
     align-items: center;
     box-shadow: 4px 4px 0px var(--red);
@@ -13,6 +12,7 @@
     border-radius: inherit;
     padding: 5px;
     font-size: 14px;
+    flex-shrink: 0;
 
     &:last-of-type {
         padding-bottom: 0px;
@@ -22,7 +22,7 @@
 .description {
     margin-right: auto;
     display: inline-block;
-    max-width: 150px;
+    flex-basis: 60%;
 }
 
 .listItemNth0 {
@@ -46,7 +46,7 @@
 } 
 
 .textArea {
-    width: 100px;
+    flex-basis: 60%;
     height: 65px;
 }
 
@@ -58,6 +58,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    flex-basis: 20%;
 
     & > * {
         margin: 3px 0px;
