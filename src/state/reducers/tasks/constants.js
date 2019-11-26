@@ -24,7 +24,7 @@ export const INITIAL_STATE = [{
   complete: false
 },
 {
-  description: 'Go to the bank',
+  description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
   id: Symbol('to-do-item'),
   editing: false,
   complete: false

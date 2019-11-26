@@ -64,6 +64,9 @@ yarn coverage
 yarn build
 ```
 
+## Deployments
+This app is hosted via githiub pages - this means that the convention of building bundle assets to either the root of the project or to the `<root>/docs` directory is enforces. I've opted for the latter option because the assets are at lest neatly sectioned somewhere rather than just sitting in the root.
+
 # Known issues
 - the user can add an empty task
 - the user can edit a task to have no text
