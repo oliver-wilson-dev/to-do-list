@@ -2,6 +2,8 @@
 
 A To-do List application with React.
 
+This application is hosted at [`https://www.oliverwilson.dev/to-do-list/`](https://www.oliverwilson.dev/to-do-list/).
+
 ## Technical Implementation
 - Css modules, afforded by postCSS.
 - Redux is used for state management.
@@ -32,27 +34,32 @@ If you would like to run the app locally
 git clone https://github.com/oliver-wilson-dev/to-do-list.git
 ```
 
-2. install the dependencies
+2. change directory into the directory that the repository has been cloned into
+```console
+cd to-do-list
+```
+
+3. install the dependencies
 ```console
 yarn
 ```
 
-3. run the application
+4. run the application
 ```console
 yarn dev
 ```
 
-4. run the tests (optional - this is opinionated and will run in watch mode)
+5. run the tests (optional - this is opinionated and will run in watch mode)
 ```console
 yarn test
 ```
 
-5. check code coverage
+6. check code coverage
 ```console
 yarn coverage
 ```
 
-6. do a production build (optional)
+7. do a production build (optional)
 ```console
 yarn build
 ```
